@@ -1,3 +1,4 @@
+const port = process.env.PORT
 if(process.env.NODE_ENV != "production"){
     require('dotenv').config();
 }  
@@ -42,7 +43,6 @@ app.use(methodOverride("_method"));
 app.engine('ejs', ejsMate);
 app.use(express.static(path.join(__dirname, "/public")));
 
-const port = process.env.PORT
 
 const store = MongoStore.create({
     mongoUrl: dbUrl,
