@@ -42,6 +42,8 @@ app.use(methodOverride("_method"));
 app.engine('ejs', ejsMate);
 app.use(express.static(path.join(__dirname, "/public")));
 
+const port = process.env.PORT
+
 const store = MongoStore.create({
     mongoUrl: dbUrl,
     crypto:{
@@ -120,6 +122,6 @@ app.use((err, req, res, next) => {
 });
 
 // Starting the server
-app.listen(8080, () => {
-    console.log("server is listening to port 8080");
-});
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
